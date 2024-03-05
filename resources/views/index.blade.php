@@ -1,6 +1,8 @@
 @extends('layout')
 
-@section('title', 'Users')
+{{--@section('title', 'Users')--}}
+
+{{--@endsection--}}
 
 @section('content')
     <table class="table">
