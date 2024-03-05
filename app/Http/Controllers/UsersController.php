@@ -12,7 +12,7 @@ class UsersController extends Controller
      */
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $users = User::get();
+        $users = User::paginate(20);
         return view('index', compact('users'));
     }
 
