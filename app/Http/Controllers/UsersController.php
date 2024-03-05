@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
@@ -27,7 +27,7 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): \Illuminate\Http\RedirectResponse
+    public function store(UserRequest $request): \Illuminate\Http\RedirectResponse
     {
         User::create($request->only(['name', 'email']));
         return redirect()->route('users.index');
@@ -52,7 +52,7 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user): \Illuminate\Http\RedirectResponse
+    public function update(UserRequest $request, User $user): \Illuminate\Http\RedirectResponse
     {
         $user->update($request->only(['name', 'email']));
         return redirect()->route('users.index');
